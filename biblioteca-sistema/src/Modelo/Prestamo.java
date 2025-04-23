@@ -1,9 +1,13 @@
 package Modelo;
 
-
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Prestamo {
+public class Prestamo implements Serializable {
+
+    private static final String ARCHIVO_LIBROS = "libros.dat";
+    private static final String ARCHIVO_PRESTAMOS = "prestamos.dat";
+    private static final String ARCHIVO_HISTORIAL = "historial.dat";
     private Libro libro;
     private String nombreUsuario;
     private LocalDate fechaPrestamo;

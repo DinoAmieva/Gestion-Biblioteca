@@ -1,7 +1,8 @@
 package Modelo;
 
+import java.io.Serializable;
 
-public class Libro {
+public class Libro implements Serializable {
     private String titulo;
     private String autor;
     private int añoPublicacion;
@@ -57,6 +58,11 @@ public class Libro {
         this.disponible = disponible;
     }
 
+    // Método corregido para obtener el año
+    public int getAño() {
+        return añoPublicacion;
+    }
+
     @Override
     public String toString() {
         return "Libro{" +
@@ -67,8 +73,4 @@ public class Libro {
                 ", disponible=" + disponible +
                 '}';
     }
-
-    public Object getAño() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-} 
+}

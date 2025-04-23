@@ -4,18 +4,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
-
+        
 public class Biblioteca {
     private LinkedList<Libro> listaLibros;
     private Queue<Prestamo> colaPrestamos;
     private HashMap<String, Libro> mapLibros;
     private ArrayList<Prestamo> historialPrestamos;
 
+    
     public Biblioteca() {
         this.listaLibros = new LinkedList<>();
         this.colaPrestamos = new LinkedList<>();
         this.mapLibros = new HashMap<>();
         this.historialPrestamos = new ArrayList<>();
+
     }
 
     public void agregarLibro(Libro libro) {

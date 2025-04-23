@@ -1,2 +1,3 @@
 Reporte de Libros Disponibles - 2025-04-23
 
+Libro{titulo='dsjjhgfdsfs', autor='fjkshfkjsfdhkfds', añoPublicacion=5263, isbn='1235632817873', disponible=true}
