@@ -1,3 +1,4 @@
 Reporte de Libros Disponibles - 2025-04-27
 
 Libro{ISBN=9780374118044, Título='Call me by your name', Autor='André Aciman', Año=2017, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
+Libro{ISBN=9780374299217, Título='Call me by your name', Autor='André Aciman', Año=2017, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}

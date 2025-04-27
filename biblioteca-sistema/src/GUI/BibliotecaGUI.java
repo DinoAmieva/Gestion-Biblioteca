@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class BibliotecaGUI extends JFrame {
     // Definición de colores corporativos
@@ -23,6 +26,7 @@ public class BibliotecaGUI extends JFrame {
     private static final Color COLOR_TEXT = new Color(47, 54, 64);       // Texto oscuro
     private static final Font FONT_MAIN = new Font("Segoe UI", Font.PLAIN, 14);
     private static final Font FONT_TITLE = new Font("Segoe UI", Font.BOLD, 16);
+    private static final String DIRECTORIO_REPORTES = "reportes/";
 
     private final Biblioteca biblioteca;
     private JTabbedPane tabbedPane;
@@ -276,15 +280,26 @@ public class BibliotecaGUI extends JFrame {
         
         JButton btnReporteDisponibles = crearBoton("Generar Reporte de Libros Disponibles");
         JButton btnReportePrestados = crearBoton("Generar Reporte de Libros Prestados");
+        JButton btnReporteVencidos = crearBoton("Generar Reporte de Préstamos Vencidos");
         
         panel.add(btnReporteDisponibles, gbc);
         gbc.gridy = 1;
         panel.add(btnReportePrestados, gbc);
+        gbc.gridy = 2;
+        panel.add(btnReporteVencidos, gbc);
+        
+        // Crear directorio de reportes si no existe
+        File directorioReportes = new File(DIRECTORIO_REPORTES);
+        if (!directorioReportes.exists()) {
+            directorioReportes.mkdir();
+        }
         
         btnReporteDisponibles.addActionListener(e -> {
             try {
-                biblioteca.generarReporteLibrosDisponibles("reporte_disponibles.txt");
-                mostrarMensaje("Reporte generado con éxito", "Éxito");
+                String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                String nombreArchivo = DIRECTORIO_REPORTES + "reporte_disponibles_" + fecha + ".txt";
+                biblioteca.generarReporteLibrosDisponibles(nombreArchivo);
+                mostrarMensaje("Reporte generado con éxito en: " + nombreArchivo, "Éxito");
             } catch (IOException ex) {
                 mostrarError("Error al generar el reporte: " + ex.getMessage());
             }
@@ -292,8 +307,21 @@ public class BibliotecaGUI extends JFrame {
         
         btnReportePrestados.addActionListener(e -> {
             try {
-                biblioteca.generarReporteLibrosPrestados("reporte_prestados.txt");
-                mostrarMensaje("Reporte generado con éxito", "Éxito");
+                String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                String nombreArchivo = DIRECTORIO_REPORTES + "reporte_prestados_" + fecha + ".txt";
+                biblioteca.generarReporteLibrosPrestados(nombreArchivo);
+                mostrarMensaje("Reporte generado con éxito en: " + nombreArchivo, "Éxito");
+            } catch (IOException ex) {
+                mostrarError("Error al generar el reporte: " + ex.getMessage());
+            }
+        });
+
+        btnReporteVencidos.addActionListener(e -> {
+            try {
+                String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                String nombreArchivo = DIRECTORIO_REPORTES + "reporte_vencidos_" + fecha + ".txt";
+                biblioteca.generarReportePrestamosVencidos(nombreArchivo);
+                mostrarMensaje("Reporte generado con éxito en: " + nombreArchivo, "Éxito");
             } catch (IOException ex) {
                 mostrarError("Error al generar el reporte: " + ex.getMessage());
             }
@@ -363,7 +391,7 @@ public class BibliotecaGUI extends JFrame {
                 return;
             }
             
-            Libro libro = new Libro(titulo, autor, año, isbn);
+            Libro libro = new Libro(titulo, autor, año, isbn, "Editorial", "Categoría", 1);
             biblioteca.agregarLibro(libro);
             actualizarTablaLibros();
             limpiarCampos();
