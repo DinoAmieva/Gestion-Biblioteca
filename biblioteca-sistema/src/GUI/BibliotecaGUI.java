@@ -92,7 +92,7 @@ public class BibliotecaGUI extends JFrame {
         panel.setBorder(new EmptyBorder(20, 20, 20, 20));
         
         // Panel de entrada de datos
-        JPanel panelEntrada = new JPanel(new GridLayout(5, 2, 10, 10));
+        JPanel panelEntrada = new JPanel(new GridLayout(7, 2, 10, 10));
         panelEntrada.setBackground(COLOR_BACKGROUND);
         panelEntrada.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createTitledBorder(null, "Datos del Libro", 
