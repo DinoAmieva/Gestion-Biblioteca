@@ -1,0 +1,3 @@
+Reporte de Libros Prestados - 2025-04-27
+
+Prestamo{ISBN=9780525433477, Usuario='Dino Amieva', FechaPrestamo=2025-04-27, FechaVencimiento=2025-05-12, FechaDevolucion=null, Multa=0.00}

@@ -35,6 +35,8 @@ public class BibliotecaGUI extends JFrame {
     private JTextField txtTitulo, txtAutor, txtIsbn, txtAño;
     private JTextField txtBusqueda;
     private JComboBox<String> comboCriterioBusqueda;
+    private JTextField txtEditorial;
+    private JComboBox<String> comboCategory;
 
     public BibliotecaGUI() {
         biblioteca = new Biblioteca();
@@ -103,6 +105,9 @@ public class BibliotecaGUI extends JFrame {
         txtAutor = crearTextField();
         txtIsbn = crearTextField();
         txtAño = crearTextField();
+        txtEditorial = crearTextField();
+        comboCategory = new JComboBox<>(new String[]{"Ficción", "No Ficción", "Ciencia", "Historia", "Biografía", "Infantil"});
+        comboCategory.setPreferredSize(new Dimension(200, 30));
         
         panelEntrada.add(crearLabel("Título:"));
         panelEntrada.add(txtTitulo);
@@ -112,6 +117,10 @@ public class BibliotecaGUI extends JFrame {
         panelEntrada.add(txtIsbn);
         panelEntrada.add(crearLabel("Año:"));
         panelEntrada.add(txtAño);
+        panelEntrada.add(crearLabel("Editorial:"));
+        panelEntrada.add(txtEditorial);
+        panelEntrada.add(crearLabel("Categoría:"));
+        panelEntrada.add(comboCategory);
         
         JButton btnAgregar = crearBoton("Agregar Libro");
         btnAgregar.addActionListener(e -> agregarLibro());
@@ -140,7 +149,7 @@ public class BibliotecaGUI extends JFrame {
         panelBusqueda.add(btnBuscar);
         
         // Tabla de libros
-        String[] columnas = {"ISBN", "Título", "Autor", "Año", "Disponible"};
+        String[] columnas = {"ISBN", "Título", "Autor", "Año", "Editorial", "Categoría", "Disponible"};
         modeloTablaLibros = new DefaultTableModel(columnas, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -391,7 +400,7 @@ public class BibliotecaGUI extends JFrame {
                 return;
             }
             
-            Libro libro = new Libro(titulo, autor, año, isbn, "Editorial", "Categoría", 1);
+            Libro libro = new Libro(titulo, autor, año, isbn, txtEditorial.getText(), (String) comboCategory.getSelectedItem(), 1);
             biblioteca.agregarLibro(libro);
             actualizarTablaLibros();
             limpiarCampos();
@@ -443,6 +452,8 @@ public class BibliotecaGUI extends JFrame {
                 libro.getTitulo(),
                 libro.getAutor(),
                 libro.getAño(),
+                libro.getEditorial(),
+                libro.getCategoria(),
                 libro.isDisponible() ? "Sí" : "No"
             });
         }
@@ -453,6 +464,8 @@ public class BibliotecaGUI extends JFrame {
         txtAutor.setText("");
         txtIsbn.setText("");
         txtAño.setText("");
+        txtEditorial.setText("");
+        comboCategory.setSelectedIndex(0);
         txtTitulo.requestFocus();
     }
 

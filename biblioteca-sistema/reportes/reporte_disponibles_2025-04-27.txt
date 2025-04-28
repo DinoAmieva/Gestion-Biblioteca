@@ -2,3 +2,10 @@ Reporte de Libros Disponibles - 2025-04-27
 
 Libro{ISBN=9780374118044, Título='Call me by your name', Autor='André Aciman', Año=2017, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
 Libro{ISBN=9780374299217, Título='Call me by your name', Autor='André Aciman', Año=2017, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
+Libro{ISBN=9780307474728, Título='Cien años de soledad', Autor='Gabriel García Marquez', Año=1967, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
+Libro{ISBN=9780307387264, Título='El amor en los tiempos del cólera', Autor='Gabriel García Marquez', Año=1985, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
+Libro{ISBN=9780143034902, Título='La sombra del viento', Autor='Carlos Ruiz Zafón', Año=2001, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
+Libro{ISBN=9788420412146, Título='Don Quijote de la Mancha', Autor='Miguel de Cervantes', Año=1605, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
+Libro{ISBN=9780802133908, Título='Pedro Páramo', Autor='Juan Rulfo', Año=1955, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
+Libro{ISBN=9788437604572, Título='Rayuela', Autor='Julio Cortázar', Año=1963, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}
+Libro{ISBN=9780802150424, Título='El laberinto de la soledad', Autor='Octavio Paz', Año=1950, Editorial='Editorial', Categoría='Categoría', Ejemplares=1/1}

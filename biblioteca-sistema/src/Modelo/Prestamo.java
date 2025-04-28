@@ -5,8 +5,8 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class Prestamo implements Serializable {
-    private static final int DIAS_PRESTAMO = 15;
-    private static final double MULTA_POR_DIA = 5.0;
+    private static final int DIAS_PRESTAMO = 3;
+    private static final double MULTA_POR_DIA = 100.0;
 
     private static final String ARCHIVO_LIBROS = "libros.dat";
     private static final String ARCHIVO_PRESTAMOS = "prestamos.dat";
